@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import {
   ArrowLeft,
   ExternalLink,
-  // Github,
   CheckCircle2,
   Tag,
   Calendar,
