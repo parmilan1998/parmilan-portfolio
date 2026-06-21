@@ -1,8 +1,6 @@
-import {
-  ArrowUp,
-  // Github, Linkedin, Twitter
-} from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import Link from "next/link";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -45,8 +43,8 @@ export function Footer() {
             </a>
           </div>
 
-          {/* <div className="flex gap-3">
-            {[Github, Linkedin, Twitter].map((Icon, i) => (
+          <div className="flex gap-3">
+            {[FaGithub, FaLinkedin, FaXTwitter].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
@@ -55,7 +53,7 @@ export function Footer() {
                 <Icon size={18} />
               </a>
             ))}
-          </div> */}
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border text-sm text-muted-foreground">
