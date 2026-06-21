@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, Loader2, Mail, MapPin, Clock } from "lucide-react";
+import { Send, CheckCircle2, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -15,39 +16,14 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Invalid email address."),
-  subject: z.string().min(3, "Subject must be at least 3 characters."),
-  message: z.string().min(10, "Message must be at least 10 characters."),
-});
+import { contactInfo } from "@/data/contactInfo";
+import { formSchema } from "@/schema/formSchema";
+import type { FormStatus } from "@/enum/form-status";
 
 type FormData = z.infer<typeof formSchema>;
 
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: process.env.NEXT_PUBLIC_EMAIL_ADDRESS || "hello@example.com",
-    href: `mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS || "hello@example.com"}`,
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Poonagary, Northern Province, Sri Lanka",
-  },
-  {
-    icon: Clock,
-    label: "Availability",
-    value: "Mon - Fri, 9AM - 6PM (GMT+5:30)",
-  },
-];
-
 export function Contact() {
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const form = useForm<FormData>({

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, ChevronDown } from "lucide-react";
@@ -165,15 +163,15 @@ export function Hero() {
             />
             {/* Floating badges */}
             <motion.div
-              className="absolute -top-4 -right-4 glass border border-primary/20 px-3 py-2 rounded-xl shadow-lg"
+              className="absolute -top-4 -right-4 glass z-10 border border-primary/20 px-3 py-2 rounded-xl shadow-lg"
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
             >
-              <span className="text-xs font-bold text-primary">5+ Years</span>
+              <span className="text-xs font-bold text-primary">2+ Years</span>
               <p className="text-xs text-muted-foreground">Experience</p>
             </motion.div>
             <motion.div
-              className="absolute -bottom-4 -left-4 glass border border-accent/20 px-3 py-2 rounded-xl shadow-lg"
+              className="absolute -bottom-4 -left-4 glass z-10 border border-accent/20 px-3 py-2 rounded-xl shadow-lg"
               animate={{ y: [0, 8, 0] }}
               transition={{
                 repeat: Infinity,
@@ -182,7 +180,7 @@ export function Hero() {
                 delay: 0.5,
               }}
             >
-              <span className="text-xs font-bold text-accent">50+</span>
+              <span className="text-xs font-bold text-accent">5+</span>
               <p className="text-xs text-muted-foreground">Projects Done</p>
             </motion.div>
           </div>
